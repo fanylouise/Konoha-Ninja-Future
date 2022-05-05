@@ -1,42 +1,59 @@
-/**********Geral***********/
-
-*{
+/*=== GERAL =================================*/
+* {
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
-:root{
-  font-size: 62.5%;/*1 rem = 10px*/
-  --primary-color:hsl(170, 100%, 26%);
-  --headline:hsl(210, 11%, 15%);
-  --paragraph:hsl(210, 9%, 31%);
-  --brand-back: hsl(61, 100%, 83%);
-  --brand-light:hsl(162, 99%, 29%);
+
+:root {
+  --primary-color: orange;
+  --headline: black;
+  --paragraph: white
+
+  --brand-beige: black;
+  --brand-light: white;
+
+  font-size: 62.5%; /* 1rem = 10px */
 
   --nav-height: 7.2rem;
 }
 
-
-body{
-  font-family: 'DM Sans' ;
-  font-size: 1.6rem;
-  text-align: center;
+html,
+body {
+  width: 100%;
+  height: 100%;
 }
 
-.wrapper{
+body {
+  font-family: 'DM Sans';
+  font-size: 1.6rem;
+
+  text-align: center;
+
+  overflow: overlay;
+}
+
+.wrapper {
   width: 37.5rem;
-  margin-right: auto;
-  margin-left: auto;
+  margin-inline: auto;
   padding-inline: 2.4rem;
 }
 
+ul {
+  list-style: none;
+}
 
-/***********Início Header*************/
-header::before{
-  content: "";
-  display: block;
-  background-color: hsl(40, 100%, 50%);
-  width: 100vw;
+/*=== HEADER =================================*/
+header {
+  margin-top: calc(4.1rem + var(--nav-height));
+}
+
+header::before {
+  content: '';
+  width: 100%;
   height: calc(108rem + var(--nav-height));
+  background-color: var(--brand-light);
+  display: block;
 
   position: absolute;
   top: 0;
@@ -44,72 +61,77 @@ header::before{
   z-index: -1;
 }
 
-header{
-  margin-top: calc(4.1rem + var(--nav-height)) ;
-  padding-right: 2rem;
-  padding-left: 2rem;
-}
- header h4{
+header h4 {
   font-size: 1.4rem;
   color: var(--primary-color);
   margin-bottom: 1.6rem;
 }
- header h1{
+
+header h1 {
   font-size: 3.4rem;
   color: var(--headline);
   line-height: 130%;
+
   margin-bottom: 2.4rem;
 }
- header p{
+
+header p {
   font-size: 1.8rem;
   line-height: 150%;
   font-weight: 400;
   color: var(--paragraph);
+
   margin-bottom: 3.2rem;
 }
-header button{
+
+header button {
   background: var(--primary-color);
-  color: white;
-  text-transform: uppercase;
-  font-size: 1.4rem;
-  font-weight: 700;
+
   border: none;
   border-radius: 4rem;
+
   margin-bottom: 6rem;
+
   height: 6.2rem;
   width: 26.3rem;
+
+  color: white;
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-transform: uppercase;
+
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 1.6rem;
-  margin-left: 3rem;
-  
+
+  margin-right: auto;
+  margin-left: auto;
 }
 
-header img{
+header img {
   width: 26.4rem;
   display: block;
   margin-inline: auto;
   object-position: 0 0rem;
 }
 
-.stats{
-  width: 32.7rem ;
+.stats {
+  width: 32.7rem;
   padding-block: 4rem;
   margin-inline: auto;
 
-  background-color: var(--brand-back);
+  background-color: var(--brand-beige);
   border: 1px solid var(--brand-light);
   border-radius: 0.6rem;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
-
   gap: 6rem;
 }
 
-.stat h3{
+.stat h3 {
   font-size: 4.8rem;
   color: var(--headline);
   line-height: 130%;
@@ -117,26 +139,18 @@ header img{
   margin-bottom: 0.4rem;
 }
 
-.stat p{
+.stat p {
   margin: 0;
-
   color: var(--primary-color);
   font-size: 1.6rem;
   line-height: 150%;
 }
-/*****************Fim Header**************/
 
-
-
-/*****************Navigation**************/
-
-nav{
+/*=== NAVIGATION =================================*/
+nav {
   display: flex;
 
   height: var(--nav-height);
-
-  padding: 1.6rem 2.4rem;
-
 
   position: fixed;
   top: 0;
@@ -144,26 +158,123 @@ nav{
   transform: translateX(-50%);
 }
 
-
-nav .wrapper{
+nav .wrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
-
 }
 
-
-/*nav.scroll{
-  background-color: rgb(255, 255, 255);
-  height: 100vw;
-
-}
-nav.scroll svg:nth-child(1) path{
-  fill: hsl(61, 100%, 83%);
-
+nav.scroll {
+  background: var(--primary-color);
+  width: 100vw;
+  position: fixed;
+  top: 0;
 }
 
-nav.scroll svg:nth-child(2) path{
-  stroke: hsl(61, 100%, 83%);
+nav.scroll svg:nth-child(1) path {
+  fill: white;
+}
 
-}*/
+nav.scroll button path {
+  stroke: white;
+}
+
+nav button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/*=== MENU-EXPANDED =================================*/
+body.menu-expanded {
+  overflow: hidden;
+}
+
+body.menu-expanded > :not(nav) {
+  display: none;
+}
+
+.menu,
+.close-menu,
+body.menu-expanded .open-menu {
+  opacity: 0;
+  visibility: hidden;
+}
+
+body.menu-expanded .menu,
+body.menu-expanded .close-menu {
+  opacity: 1;
+  visibility: visible;
+}
+
+body.menu-expanded .menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: var(--primary-color);
+
+  width: 100vw;
+  height: 100vh;
+
+  padding-top: var(--nav-height);
+}
+
+body.menu-expanded nav {
+  position: relative;
+}
+
+.menu ul:nth-child(1) {
+  display: flex;
+  flex-direction: column;
+  gap: 4.8rem;
+
+  margin-top: 6rem;
+
+  font-weight: 700;
+  font-size: 2.4rem;
+  line-height: 3.1rem;
+}
+
+.menu ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+.menu .button {
+  background: black;
+  border-radius: 4rem;
+  font-weight: 700;
+  font-size: 1.8rem;
+  line-height: 2.3rem;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  color: white;
+
+  display: inline-block;
+  padding: 16px 32px;
+
+  margin-top: 4.8rem;
+  margin-bottom: 8rem;
+}
+
+.social-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3.2rem;
+}
+
+body.menu-expanded .logo,
+body.menu-expanded button {
+  position: relative;
+  z-index: 100;
+}
+
+body.menu-expanded .logo path {
+  fill: white;
+}
+
+body.menu-expanded button path {
+  stroke: white;
+}
