@@ -48,9 +48,16 @@ body {
 ul {
   list-style: none;
 }
+img {
+  max-width: 100%;
+  margin-block: 2rem;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+  border-radius: 0.6rem;
+}
 
 section{
-  padding-block: 10rem;
+  padding-block: 5rem;
 
 }
 
@@ -81,6 +88,44 @@ section .content p{
   font-size: 1.6rem;
   line-height: 150%;
   color: black;
+}
+.social-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3.2rem;
+}
+
+.button {
+  background: var(--primary-color);
+
+  border: none;
+  border-radius: 4rem;
+
+  margin-bottom: 6rem;
+  margin-top: 4rem;
+  padding: 1.6rem 3.2rem;
+  width: fit-content;
+
+  margin-inline: auto;
+  color: white;
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-transform: uppercase;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.6rem;
+
+  border: 1px solid black;
+
+  text-decoration: none;
+}
+.button:hover{
+  background-color: orangered ;
+
+  transition: background .2s;
 }
 
 
@@ -182,19 +227,19 @@ body.menu-expanded .menu {
 }
 
 .menu ul li a {
-  color: white;
+  color: rgb(0, 0, 0);
   text-decoration: none;
 }
 
 .menu .button {
-  background: black;
+  background:orange;
   border-radius: 4rem;
   font-weight: 700;
   font-size: 1.8rem;
   line-height: 2.3rem;
   text-transform: uppercase;
   text-decoration: none;
-
+  border: 1px solid black;
   color: white;
 
   display: inline-block;
@@ -203,13 +248,11 @@ body.menu-expanded .menu {
   margin-top: 4.8rem;
   margin-bottom: 8rem;
 }
-
-.social-links {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 3.2rem;
+.menu .button:hover{
+  background-color: orangered;
+  color: black;
 }
+
 
 body.menu-expanded .logo,
 body.menu-expanded button {
@@ -244,6 +287,9 @@ body.menu-expanded button path {
   left: 0;
   z-index: -1;
 }
+#home .button{
+  margin-inline: auto;
+}
 
 
 #home p {
@@ -253,33 +299,6 @@ body.menu-expanded button path {
   color: var(--paragraph);
 
   margin-bottom: 3.2rem;
-}
-
-#home button {
-  background: var(--primary-color);
-
-  border: none;
-  border-radius: 4rem;
-
-  margin-bottom: 6rem;
-
-  height: 6.2rem;
-  width: 26.3rem;
-
-  color: white;
-  font-size: 1.4rem;
-  font-weight: 700;
-  text-transform: uppercase;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1.6rem;
-
-  margin-right: auto;
-  margin-left: auto;
-
-  border: 1px solid black;
 }
 
 #home img {
@@ -331,6 +350,8 @@ body.menu-expanded button path {
   display: flex;
   flex-direction:column;
   gap: 3.2rem;
+  margin-bottom: 1.5rem;
+  margin-top: 1.8rem;
 
   padding: 2.4rem;
   text-align: left;
@@ -340,8 +361,6 @@ body.menu-expanded button path {
   border: 1px solid black;
   border-radius: 0.6rem;
 
-  margin-top: 2rem;
-  margin-bottom: 1rem;
 
 }
 #assignments .card h3{
@@ -352,24 +371,90 @@ body.menu-expanded button path {
 /*=== ABOUT=================================*/
 
 #about{
-  text-align: left;
+  text-align: left
 
 }
 
-#about header h2 {
+#about wrapper img {
+  margin-top: 1.5rem;
+}
+#about .wrapper p{
+  margin-top: 2.4rem;
+}
+
+/*=== CONTACT =================================*/
+
+#contact{
+  text-align: center;
+}
+
+#contact header{
+  margin-bottom: 3.2rem;
+}
+#contact ul{
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+
+  margin-bottom: 3.2rem;
+
+  
+}
+
+#contact ul li{
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+#contact ul li p {
+  text-align: center;
+}
+
+/*=== FOOTER =================================*/
+
+
+footer{
+  background-color: orange;
+  padding-block: 6rem;
+  font-weight: 600;
+  text-align: center;
+
+  color: white;
+}
+footer .logo{
+  display: inline-block;
   margin-bottom: 2.4rem;
 }
-#about .content p{
-  margin-top: 2.4rem;
-  margin-bottom: 6rem;
 
+
+footer .logo path{
+  fill: white;
 }
 
+footer p{
+  color: white;
+  line-height: 2;
 
+  margin-bottom: 3.2rem;
+}
 
+/******************BACK TO TOP**********************/
+#backToTop{
+  position: fixed;
+  bottom: 1rem;
+  right: 2.5rem;
 
+  opacity: 0;
+  visibility: hidden;
 
-
+  transform: translateY(100%);
+  transition: 200ms;
+}
+#backToTop.show{
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
 
 
 

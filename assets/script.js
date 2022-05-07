@@ -1,8 +1,21 @@
+window.addEventListener('scroll', onScroll)
+onScroll()
 function onScroll() {
+  showNavOnScroll()
+  showBackToTopOnScroll()
+}
+function showNavOnScroll(){
   if (scrollY > 0) {
     navigation.classList.add('scroll')
   } else {
     navigation.classList.remove('scroll')
+  }
+}
+function showBackToTopOnScroll(){
+  if (scrollY > 550) {
+    backToTop.classList.add('show')
+  } else {
+    backToTop.classList.remove('show')
   }
 }
 
@@ -24,5 +37,9 @@ ScrollReveal({
 #home .stats,
 #assignments,
 #assignments header,
-#assignments .cards
+#assignments .cards,
+#about,
+#about header,
+#about .content
+
    `);
