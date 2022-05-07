@@ -582,7 +582,7 @@ footer .social-links {
     content: '';
     width: 0%;
     height: 2px;
-    background-color: whit;
+    background-color: black;
 
     position: relative;
     bottom: -2rem;
@@ -594,7 +594,7 @@ footer .social-links {
   }
 
   nav#navigation.scroll .menu li a::after {
-    background-color: orange;
+    background-color: rgb(0, 0, 0);
   }
 
   nav#navigation .menu li a.active::after,
